@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3546BA342575762D00413A2E /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3546BA332575762D00413A2E /* Grid.swift */; };
 		35939A28256CD52A007A3D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35939A27256CD52A007A3D34 /* AppDelegate.swift */; };
 		35939A2A256CD52A007A3D34 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 35939A29256CD52A007A3D34 /* art.scnassets */; };
 		35939A2C256CD52A007A3D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35939A2B256CD52A007A3D34 /* ViewController.swift */; };
@@ -15,8 +16,6 @@
 		35939A34256CD52B007A3D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35939A32256CD52B007A3D34 /* LaunchScreen.storyboard */; };
 		35939A3F256CD52C007A3D34 /* AR_ruler_sceneKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35939A3E256CD52C007A3D34 /* AR_ruler_sceneKitTests.swift */; };
 		35939A4A256CD52C007A3D34 /* AR_ruler_sceneKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35939A49256CD52C007A3D34 /* AR_ruler_sceneKitUITests.swift */; };
-		35939A5E256CD589007A3D34 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35939A5D256CD589007A3D34 /* Grid.swift */; };
-		35939A6B256CDCC0007A3D34 /* transparentimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 35939A6A256CDCC0007A3D34 /* transparentimage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3546BA332575762D00413A2E /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		35939A24256CD52A007A3D34 /* AR ruler sceneKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR ruler sceneKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35939A27256CD52A007A3D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35939A29256CD52A007A3D34 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -51,8 +51,6 @@
 		35939A45256CD52C007A3D34 /* AR ruler sceneKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR ruler sceneKitUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35939A49256CD52C007A3D34 /* AR_ruler_sceneKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_ruler_sceneKitUITests.swift; sourceTree = "<group>"; };
 		35939A4B256CD52C007A3D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		35939A5D256CD589007A3D34 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = ../../../Assets/Grid.swift; sourceTree = "<group>"; };
-		35939A6A256CDCC0007A3D34 /* transparentimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparentimage.png; path = ../../../transparentimage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +101,6 @@
 		35939A26256CD52A007A3D34 /* AR ruler sceneKit */ = {
 			isa = PBXGroup;
 			children = (
-				35939A6A256CDCC0007A3D34 /* transparentimage.png */,
-				35939A5D256CD589007A3D34 /* Grid.swift */,
 				35939A27256CD52A007A3D34 /* AppDelegate.swift */,
 				35939A29256CD52A007A3D34 /* art.scnassets */,
 				35939A2B256CD52A007A3D34 /* ViewController.swift */,
@@ -112,6 +108,7 @@
 				35939A30256CD52B007A3D34 /* Assets.xcassets */,
 				35939A32256CD52B007A3D34 /* LaunchScreen.storyboard */,
 				35939A35256CD52B007A3D34 /* Info.plist */,
+				3546BA332575762D00413A2E /* Grid.swift */,
 			);
 			path = "AR ruler sceneKit";
 			sourceTree = "<group>";
@@ -239,7 +236,6 @@
 			files = (
 				35939A2A256CD52A007A3D34 /* art.scnassets in Resources */,
 				35939A34256CD52B007A3D34 /* LaunchScreen.storyboard in Resources */,
-				35939A6B256CDCC0007A3D34 /* transparentimage.png in Resources */,
 				35939A31256CD52B007A3D34 /* Assets.xcassets in Resources */,
 				35939A2F256CD52A007A3D34 /* Main.storyboard in Resources */,
 			);
@@ -268,7 +264,7 @@
 			files = (
 				35939A2C256CD52A007A3D34 /* ViewController.swift in Sources */,
 				35939A28256CD52A007A3D34 /* AppDelegate.swift in Sources */,
-				35939A5E256CD589007A3D34 /* Grid.swift in Sources */,
+				3546BA342575762D00413A2E /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
