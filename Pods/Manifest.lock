@@ -1,0 +1,20 @@
+PODS:
+  - PusherSwift (9.0.0):
+    - ReachabilitySwift (~> 5.0)
+  - ReachabilitySwift (5.0.0)
+
+DEPENDENCIES:
+  - PusherSwift
+
+SPEC REPOS:
+  trunk:
+    - PusherSwift
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  PusherSwift: e96cb309780695bdfe93de54f610ba40beae97aa
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+
+PODFILE CHECKSUM: 161fc824d61e8fc5dfff366262862ea1302d18e9
+
+COCOAPODS: 1.10.0

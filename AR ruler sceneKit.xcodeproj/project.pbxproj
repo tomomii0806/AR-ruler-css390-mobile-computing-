@@ -16,6 +16,9 @@
 		35939A34256CD52B007A3D34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35939A32256CD52B007A3D34 /* LaunchScreen.storyboard */; };
 		35939A3F256CD52C007A3D34 /* AR_ruler_sceneKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35939A3E256CD52C007A3D34 /* AR_ruler_sceneKitTests.swift */; };
 		35939A4A256CD52C007A3D34 /* AR_ruler_sceneKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35939A49256CD52C007A3D34 /* AR_ruler_sceneKitUITests.swift */; };
+		374CBFE0EA07619B637D6F8F /* Pods_AR_ruler_sceneKit_AR_ruler_sceneKitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4F0D3DE9844115334CF4EF /* Pods_AR_ruler_sceneKit_AR_ruler_sceneKitUITests.framework */; };
+		723E02256A22629306F44B2A /* Pods_AR_ruler_sceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6869F1CF4750689AA8D8B3F1 /* Pods_AR_ruler_sceneKit.framework */; };
+		D80E745BC47A27044D2CD068 /* Pods_AR_ruler_sceneKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D5B8E035D419D5C5BA9828 /* Pods_AR_ruler_sceneKitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C25EB7EE81FDF2CF4F373DE /* Pods-AR ruler sceneKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ruler sceneKitTests.debug.xcconfig"; path = "Target Support Files/Pods-AR ruler sceneKitTests/Pods-AR ruler sceneKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E00223E88654F2154684572 /* Pods-AR ruler sceneKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ruler sceneKit.release.xcconfig"; path = "Target Support Files/Pods-AR ruler sceneKit/Pods-AR ruler sceneKit.release.xcconfig"; sourceTree = "<group>"; };
 		3546BA332575762D00413A2E /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		35939A24256CD52A007A3D34 /* AR ruler sceneKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR ruler sceneKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35939A27256CD52A007A3D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +56,13 @@
 		35939A45256CD52C007A3D34 /* AR ruler sceneKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR ruler sceneKitUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35939A49256CD52C007A3D34 /* AR_ruler_sceneKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_ruler_sceneKitUITests.swift; sourceTree = "<group>"; };
 		35939A4B256CD52C007A3D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D2E45675ED4FDB338BFA007 /* Pods-AR ruler sceneKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ruler sceneKit.debug.xcconfig"; path = "Target Support Files/Pods-AR ruler sceneKit/Pods-AR ruler sceneKit.debug.xcconfig"; sourceTree = "<group>"; };
+		6869F1CF4750689AA8D8B3F1 /* Pods_AR_ruler_sceneKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ruler_sceneKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		828CC4C66E6A785A08124B9B /* Pods-AR ruler sceneKit-AR ruler sceneKitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ruler sceneKit-AR ruler sceneKitUITests.release.xcconfig"; path = "Target Support Files/Pods-AR ruler sceneKit-AR ruler sceneKitUITests/Pods-AR ruler sceneKit-AR ruler sceneKitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		876FF8C30F1C0815C80E1600 /* Pods-AR ruler sceneKit-AR ruler sceneKitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ruler sceneKit-AR ruler sceneKitUITests.debug.xcconfig"; path = "Target Support Files/Pods-AR ruler sceneKit-AR ruler sceneKitUITests/Pods-AR ruler sceneKit-AR ruler sceneKitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0D5B8E035D419D5C5BA9828 /* Pods_AR_ruler_sceneKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ruler_sceneKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA4F0D3DE9844115334CF4EF /* Pods_AR_ruler_sceneKit_AR_ruler_sceneKitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AR_ruler_sceneKit_AR_ruler_sceneKitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE53D73F7C4E4B844204AC3C /* Pods-AR ruler sceneKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR ruler sceneKitTests.release.xcconfig"; path = "Target Support Files/Pods-AR ruler sceneKitTests/Pods-AR ruler sceneKitTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				723E02256A22629306F44B2A /* Pods_AR_ruler_sceneKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80E745BC47A27044D2CD068 /* Pods_AR_ruler_sceneKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374CBFE0EA07619B637D6F8F /* Pods_AR_ruler_sceneKit_AR_ruler_sceneKitUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,8 @@
 				35939A3D256CD52C007A3D34 /* AR ruler sceneKitTests */,
 				35939A48256CD52C007A3D34 /* AR ruler sceneKitUITests */,
 				35939A25256CD52A007A3D34 /* Products */,
+				5CAE5ED4AF4E22F179412D11 /* Pods */,
+				3B2F3D7E37B59686E1B8D6E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +148,30 @@
 			path = "AR ruler sceneKitUITests";
 			sourceTree = "<group>";
 		};
+		3B2F3D7E37B59686E1B8D6E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6869F1CF4750689AA8D8B3F1 /* Pods_AR_ruler_sceneKit.framework */,
+				BA4F0D3DE9844115334CF4EF /* Pods_AR_ruler_sceneKit_AR_ruler_sceneKitUITests.framework */,
+				B0D5B8E035D419D5C5BA9828 /* Pods_AR_ruler_sceneKitTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CAE5ED4AF4E22F179412D11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D2E45675ED4FDB338BFA007 /* Pods-AR ruler sceneKit.debug.xcconfig */,
+				1E00223E88654F2154684572 /* Pods-AR ruler sceneKit.release.xcconfig */,
+				876FF8C30F1C0815C80E1600 /* Pods-AR ruler sceneKit-AR ruler sceneKitUITests.debug.xcconfig */,
+				828CC4C66E6A785A08124B9B /* Pods-AR ruler sceneKit-AR ruler sceneKitUITests.release.xcconfig */,
+				0C25EB7EE81FDF2CF4F373DE /* Pods-AR ruler sceneKitTests.debug.xcconfig */,
+				CE53D73F7C4E4B844204AC3C /* Pods-AR ruler sceneKitTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35939A4E256CD52C007A3D34 /* Build configuration list for PBXNativeTarget "AR ruler sceneKit" */;
 			buildPhases = (
+				243CF449E999EFA05872B1E8 /* [CP] Check Pods Manifest.lock */,
 				35939A20256CD52A007A3D34 /* Sources */,
 				35939A21256CD52A007A3D34 /* Frameworks */,
 				35939A22256CD52A007A3D34 /* Resources */,
+				F33444B29E327B45026187C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +198,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35939A51256CD52C007A3D34 /* Build configuration list for PBXNativeTarget "AR ruler sceneKitTests" */;
 			buildPhases = (
+				764057ECE9BFBD418A2F5A8C /* [CP] Check Pods Manifest.lock */,
 				35939A36256CD52C007A3D34 /* Sources */,
 				35939A37256CD52C007A3D34 /* Frameworks */,
 				35939A38256CD52C007A3D34 /* Resources */,
@@ -173,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35939A54256CD52C007A3D34 /* Build configuration list for PBXNativeTarget "AR ruler sceneKitUITests" */;
 			buildPhases = (
+				4D95E35AC293AC130C9D40C7 /* [CP] Check Pods Manifest.lock */,
 				35939A41256CD52C007A3D34 /* Sources */,
 				35939A42256CD52C007A3D34 /* Frameworks */,
 				35939A43256CD52C007A3D34 /* Resources */,
+				3929716DCE35AFCB21836DE4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +302,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		243CF449E999EFA05872B1E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AR ruler sceneKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3929716DCE35AFCB21836DE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AR ruler sceneKit-AR ruler sceneKitUITests/Pods-AR ruler sceneKit-AR ruler sceneKitUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AR ruler sceneKit-AR ruler sceneKitUITests/Pods-AR ruler sceneKit-AR ruler sceneKitUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AR ruler sceneKit-AR ruler sceneKitUITests/Pods-AR ruler sceneKit-AR ruler sceneKitUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D95E35AC293AC130C9D40C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AR ruler sceneKit-AR ruler sceneKitUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		764057ECE9BFBD418A2F5A8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AR ruler sceneKitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F33444B29E327B45026187C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AR ruler sceneKit/Pods-AR ruler sceneKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AR ruler sceneKit/Pods-AR ruler sceneKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AR ruler sceneKit/Pods-AR ruler sceneKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		35939A20256CD52A007A3D34 /* Sources */ = {
@@ -437,46 +586,49 @@
 		};
 		35939A4F256CD52C007A3D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D2E45675ED4FDB338BFA007 /* Pods-AR ruler sceneKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L9XW6Z56T2;
+				DEVELOPMENT_TEAM = N8P7T4YT4H;
 				INFOPLIST_FILE = "AR ruler sceneKit/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "UWB.AR-ruler-sceneKit";
+				PRODUCT_BUNDLE_IDENTIFIER = "AR-ruler-sceneKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		35939A50256CD52C007A3D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E00223E88654F2154684572 /* Pods-AR ruler sceneKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L9XW6Z56T2;
+				DEVELOPMENT_TEAM = N8P7T4YT4H;
 				INFOPLIST_FILE = "AR ruler sceneKit/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "UWB.AR-ruler-sceneKit";
+				PRODUCT_BUNDLE_IDENTIFIER = "AR-ruler-sceneKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		35939A52256CD52C007A3D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C25EB7EE81FDF2CF4F373DE /* Pods-AR ruler sceneKitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -499,6 +651,7 @@
 		};
 		35939A53256CD52C007A3D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE53D73F7C4E4B844204AC3C /* Pods-AR ruler sceneKitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -521,6 +674,7 @@
 		};
 		35939A55256CD52C007A3D34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 876FF8C30F1C0815C80E1600 /* Pods-AR ruler sceneKit-AR ruler sceneKitUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -541,6 +695,7 @@
 		};
 		35939A56256CD52C007A3D34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 828CC4C66E6A785A08124B9B /* Pods-AR ruler sceneKit-AR ruler sceneKitUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -8,6 +8,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import PusherSwift
 
 // https://stackoverflow.com/questions/21886224/drawing-a-line-between-two-points-using-scenekit
 extension SCNGeometry {
@@ -38,14 +39,33 @@ extension Float {
     func metersToInches() -> Float {
         return self * 39.3701
     }
+    
+    func metersTocm() -> Float {
+        return self * 100
+    }
 }
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    @IBOutlet weak var labelField: UITextField!
     @IBOutlet var sceneView: ARSCNView!
+    
     var grids = [Grid]()
     
     var numberOfTaps = 0
+    
+    let pusher = Pusher(
+          key: "",
+          options: PusherClientOptions(
+              authMethod: .inline(secret: ""),
+              host: .cluster("us3")
+          )
+      )
+    
+    var channel: PusherChannel!
+    var sendingTime : TimeInterval = 0
+    var distance: Float!
+    var unit: String!
     
     var startPoint: SCNVector3!
     var endPoint: SCNVector3!
@@ -55,10 +75,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the view's delegate
         sceneView.delegate = self
+        labelField.delegate = self
+        distance = 0.0
+        unit = "in"
         
+        channel = pusher.subscribe("private-channel")
+        pusher.connect()
+
+    
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
+        //sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
         
         // Create a new scene
         let scene = SCNScene()
@@ -68,6 +95,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         sceneView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func sendPusherEvent() {
+        channel.trigger(eventName: "client-new-measurement", data: ["payload": labelField.text! + String(format: " %.2f " + unit, distance!)])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,7 +194,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             addLineBetween(start: startPoint, end: endPoint)
             
-            addDistanceText(distance: SCNVector3.distanceFrom(vector: startPoint, toVector: endPoint), at: endPoint)
+            distance = SCNVector3.distanceFrom(vector: startPoint, toVector: endPoint)
+            if unit == "in" {
+                distance = distance.metersToInches()
+            } else {
+                distance = distance.metersTocm()
+            }
+            
+            addDistanceText(distance: distance, at: endPoint)
         }
     }
     
@@ -192,8 +230,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene.rootNode.addChildNode(lineNode)
     }
     
+    
     func addDistanceText(distance: Float, at point: SCNVector3) {
-        let textGeometry = SCNText(string: String(format: "%.1f\"", distance.metersToInches()), extrusionDepth: 1)
+        let textGeometry = SCNText(string: String(format: "%.2f " + unit, distance), extrusionDepth: 1)
         textGeometry.flatness = 0.005
         textGeometry.font = UIFont.systemFont(ofSize: 7)
         textGeometry.firstMaterial?.diffuse.contents = UIColor.white
@@ -212,5 +251,46 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //        planeNode.addChildNode(textNode)
         
         sceneView.scene.rootNode.addChildNode(textNode)
+        
+    }
+    
+
+    @IBAction func unitChange(_ sender: UISegmentedControl) {
+        if unit == "in" {
+            unit = "cm"
+        } else {
+            unit = "in"
+        }
+    }
+    
+    func listenEvent() {
+        channel.bind(eventName: "client-new-measurement", eventCallback: { (event: PusherEvent) -> Void in
+            if let data: String = event.data {
+                print(data)
+            }
+        })
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "", message: "Measurement sent", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in print("button clicked")}))
+        present(alert, animated: true)
+    }
+    
+    @IBAction func sendButton(_ sender: UIButton) {
+        sceneView.scene.rootNode.removeAllAnimations()
+        sendPusherEvent()
+        showAlert()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        labelField.resignFirstResponder()
+    }
+}
+
+extension ViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

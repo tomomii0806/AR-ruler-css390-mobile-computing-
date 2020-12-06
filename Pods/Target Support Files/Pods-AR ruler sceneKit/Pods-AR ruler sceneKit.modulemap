@@ -1,0 +1,6 @@
+framework module Pods_AR_ruler_sceneKit {
+  umbrella header "Pods-AR ruler sceneKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
