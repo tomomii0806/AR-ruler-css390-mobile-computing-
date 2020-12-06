@@ -2,15 +2,13 @@
 //  ViewController.swift
 //  AR ruler sceneKit
 //
-//  Created by 中村友美 on 11/23/20.
-//
 
 import UIKit
 import SceneKit
 import ARKit
 import PusherSwift
 
-// https://stackoverflow.com/questions/21886224/drawing-a-line-between-two-points-using-scenekit
+//Create a line which connects between vector1 and vector2 in 3D vector.
 extension SCNGeometry {
     class func lineFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
         let indices: [Int32] = [0, 1]
@@ -21,7 +19,7 @@ extension SCNGeometry {
         return SCNGeometry(sources: [source], elements: [element])
     }
 }
-
+//Calculate a distance between vector1 and vector2 in 3D vector.
 extension SCNVector3 {
     static func distanceFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> Float {
         let x0 = vector1.x
@@ -30,11 +28,11 @@ extension SCNVector3 {
         let y1 = vector2.y
         let z0 = vector1.z
         let z1 = vector2.z
-        
+        //distance = {(x1-x0)^2 + (y1-y0)^2 + (z1-z0)^2}^(1/2)
         return sqrtf(powf(x1-x0, 2) + powf(y1-y0, 2) + powf(z1-z0, 2))
     }
 }
-
+//Convert measurments from meter to inches/cm
 extension Float {
     func metersToInches() -> Float {
         return self * 39.3701
@@ -45,13 +43,12 @@ extension Float {
     }
 }
 
+//Screen view controller
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet weak var labelField: UITextField!
     @IBOutlet var sceneView: ARSCNView!
-    
-    var grids = [Grid]()
-    
+        
     var numberOfTaps = 0
     
     let pusher = Pusher(
@@ -70,10 +67,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var startPoint: SCNVector3!
     var endPoint: SCNVector3!
     
+    //called when the view finishes loading
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
+        //Set the view's delegate
         sceneView.delegate = self
         labelField.delegate = self
         distance = 0.0
@@ -81,19 +79,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         channel = pusher.subscribe("private-channel")
         pusher.connect()
-
     
-        // Show statistics such as fps and timing information
+        //Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        //sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
         
-        // Create a new scene
+        //Create a new scene
         let scene = SCNScene()
 
-        // Set the scene to the view
+        //Set the scene to the view
         sceneView.scene = scene
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        //Recognize single or multple taps on your screen
+                //'tapped' method is called here
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnScreen))
         sceneView.addGestureRecognizer(gestureRecognizer)
     }
     
@@ -101,97 +99,47 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         channel.trigger(eventName: "client-new-measurement", data: ["payload": labelField.text! + String(format: " %.2f " + unit, distance!)])
     }
     
+    //Used to communicate the changes in screens
+    //Triggered in response to a change in the state of the application
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
+        //Tracks the device's movement with six degrees of freedom: the three rotation axes (roll, pitch, and yaw), and three translation axes (movement in x, y, and z)
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
 
-        // Run the view's session
+        //Run the view's session
         sceneView.session.run(configuration)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Pause the view's session
-        sceneView.session.pause()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
-    // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        let grid = Grid(anchor: anchor as! ARPlaneAnchor)
-        self.grids.append(grid)
-        node.addChildNode(grid)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        let grid = self.grids.filter { grid in
-            return grid.anchor.identifier == anchor.identifier
-            }.first
-        
-        guard let foundGrid = grid else {
-            return
-        }
-        
-        foundGrid.update(anchor: anchor as! ARPlaneAnchor)
-    }
-    
-    @objc func tapped(gesture: UITapGestureRecognizer) {
+    //Called when you tap your screen
+    @objc func tapOnScreen(gesture: UITapGestureRecognizer) {
         numberOfTaps += 1
+                
+        //Get 2D position of screen where you tapped
+        let tappedPosition = gesture.location(in: sceneView)
         
-        // Get 2D position of touch event on screen
-        let touchPosition = gesture.location(in: sceneView)
+        //Convert 2D position to 3D
+        let hitTestResults = sceneView.hitTest(tappedPosition, types: .existingPlane)
+        guard let hitPos = hitTestResults.first else { return }
         
-        // Translate those 2D points to 3D points using hitTest (existing plane)
-        let hitTestResults = sceneView.hitTest(touchPosition, types: .existingPlane)
-        
-        guard let hitTest = hitTestResults.first else {
-            return
+        //First tap (Starting position)
+        if numberOfTaps == 1
+        {
+            //Get the staring position in 3D vector
+            startPoint = SCNVector3(hitPos.worldTransform.columns.3.x, hitPos.worldTransform.columns.3.y, hitPos.worldTransform.columns.3.z)
+            //Display gray dot on screen
+            addStartMarker(hitTestResult: hitPos)
         }
-        
-        // If first tap, add red marker. If second tap, add green marker and reset to 0
-        if numberOfTaps == 1 {
-            startPoint = SCNVector3(hitTest.worldTransform.columns.3.x, hitTest.worldTransform.columns.3.y, hitTest.worldTransform.columns.3.z)
-            addStartMarker(hitTestResult: hitTest)
-        }
-        else {
-            // After 2nd tap, reset taps to 0
+        //Second tap (Ending position)
+        else
+        {
+            //Reset to 0
             numberOfTaps = 0
-            endPoint = SCNVector3(hitTest.worldTransform.columns.3.x, hitTest.worldTransform.columns.3.y, hitTest.worldTransform.columns.3.z)
-            addEndMarker(hitTestResult: hitTest)
-            
+            //Get the staring position in 3D vector
+            endPoint = SCNVector3(hitPos.worldTransform.columns.3.x, hitPos.worldTransform.columns.3.y, hitPos.worldTransform.columns.3.z)
+            //Display gray dot on screen
+            addEndMarker(hitTestResult: hitPos)
+            //Display line between two gray dots
             addLineBetween(start: startPoint, end: endPoint)
             
             distance = SCNVector3.distanceFrom(vector: startPoint, toVector: endPoint)
@@ -200,58 +148,54 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             } else {
                 distance = distance.metersTocm()
             }
-            
+            //Add the distance between two dots in text
             addDistanceText(distance: distance, at: endPoint)
         }
     }
-    
+    //Add a lightgrey dot at starting position
     func addStartMarker(hitTestResult: ARHitTestResult) {
         addMarker(hitTestResult: hitTestResult, color: .lightGray)
     }
-    
+    //Add a grey dot at ending position
     func addEndMarker(hitTestResult: ARHitTestResult) {
         addMarker(hitTestResult: hitTestResult, color: .gray)
     }
-    
+    //Add a dot at a tapped position
     func addMarker(hitTestResult: ARHitTestResult, color: UIColor) {
+        //Set size of a dot
         let geometry = SCNSphere(radius: 0.003)
+        //Set colot
         geometry.firstMaterial?.diffuse.contents = color
         
         let markerNode = SCNNode(geometry: geometry)
+        //Set position of a dot in 3D vector
         markerNode.position = SCNVector3(hitTestResult.worldTransform.columns.3.x, hitTestResult.worldTransform.columns.3.y, hitTestResult.worldTransform.columns.3.z)
-        
+        //Add the dot in the view
         sceneView.scene.rootNode.addChildNode(markerNode)
     }
-   
+    //Add a line between two dots
     func addLineBetween(start: SCNVector3, end: SCNVector3) {
+        //Create line from start to end
         let lineGeometry = SCNGeometry.lineFrom(vector: start, toVector: end)
         let lineNode = SCNNode(geometry: lineGeometry)
-        
+        //Add the line in the view
         sceneView.scene.rootNode.addChildNode(lineNode)
     }
-    
-    
+    //Add a distance in text
     func addDistanceText(distance: Float, at point: SCNVector3) {
+        //Set text style
         let textGeometry = SCNText(string: String(format: "%.2f " + unit, distance), extrusionDepth: 1)
         textGeometry.flatness = 0.005
         textGeometry.font = UIFont.systemFont(ofSize: 7)
         textGeometry.firstMaterial?.diffuse.contents = UIColor.white
-
+        //Create a node
         let textNode = SCNNode(geometry: textGeometry)
+        //Set position to display the text
         textNode.position = SCNVector3Make(point.x, point.y, point.z);
+        //Set scale of text
         textNode.scale = SCNVector3Make(0.005, 0.005, 0.005)
-        
-        
-//        let plane = SCNPlane(width: CGFloat(0.08), height: CGFloat(0.05))
-//        let planeNode = SCNNode(geometry: plane)
-//        planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green
-//        planeNode.geometry?.firstMaterial?.isDoubleSided = true
-//        planeNode.position = textNode.position
-//        //textNode.eulerAngles = planeNode.eulerAngles
-//        planeNode.addChildNode(textNode)
-        
+        //Add text in the view
         sceneView.scene.rootNode.addChildNode(textNode)
-        
     }
     
 
